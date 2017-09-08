@@ -1,0 +1,15 @@
+{
+  "whitelist": [
+    "://((www|static|cdn|id|cdnid)\\.)?techinasia\\.com",
+    "://[^.]+\\.algolia"
+  ],
+  "cacheControl": {
+    "maxAge" : 31536000
+  },
+  "cache": {
+    "expiry": 2592000
+  },
+  "render": {
+    "timeout": 15
+  }
+}

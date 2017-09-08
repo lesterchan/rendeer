@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build_test_deploy:
+    working_directory: ~/rendeer
+    docker:
+      - image: circleci/node:8.4-browsers
+    steps:
+      - checkout
+      - run: 'sudo apt install python-pip python-dev'
+      - run: 'sudo easy_install six==1.9.0'
+      - run: 'sudo pip install awsebcli'
+      - run: 'yarn'
+      - run: 'yarn run lint'
+      - deploy:
+          name: Deploy to Production
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              eb init Rendeer -r ap-southeast-1 -p "arn:aws:elasticbeanstalk:ap-southeast-1::platform/Docker running on 64bit Amazon Linux/2.7.3"
+              eb deploy
+            fi
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - build_test_deploy

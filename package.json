@@ -1,0 +1,46 @@
+{
+  "name": "rendeer",
+  "version": "1.0.1",
+  "description": "When Puppeteer meets Prerender",
+  "license": "MIT",
+  "author": "Tech in Asia .develop <dev@techinasia.com> (https://www.techinasia.com)",
+  "homepage": "https://github.com/techinasia/rendeer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/techinasia/rendeer.git"
+  },
+  "main": "src/main.js",
+  "scripts": {
+    "lint": "eslint src/*.js",
+    "start": "node src/main.js"
+  },
+  "eslintConfig": {
+    "extends": "techinasia-base",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+      "no-unused-expressions": 0,
+      "func-names": 0,
+      "strict": 0,
+      "max-len": 0,
+      "no-console": 0,
+      "no-param-reassign": 0
+    }
+  },
+  "devDependencies": {
+    "eslint": "*",
+    "eslint-config-techinasia-base": "*",
+    "eslint-plugin-import": "*"
+  },
+  "dependencies": {
+    "md5": "~2.2.1",
+    "memcache-plus": "~0.2.18",
+    "p-timeout": "~1.2.0",
+    "puppeteer": "~0.10.2"
+  },
+  "engines": {
+    "node": ">=7.6"
+  }
+}

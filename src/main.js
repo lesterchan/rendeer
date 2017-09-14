@@ -59,14 +59,12 @@ const fetchContent = async (pageURL) => {
     // Ensure that only whitelisted URLs and GET method is allowed
     if (!whitelistRegExp.test(url) || method.toLowerCase() !== 'get' || /^(font|media|websocket|manifest|other)$/i.test(resourceType)) {
       request.abort();
+    } else if (resourceType === 'Image') {
+      request.continue({
+        url: 'data:image/gif;base64,R0lGODlhAQABAID/AP///wAAACwAAAAAAQABAAACAkQBADs=',
+      });
     } else {
-      if (resourceType == 'Image') {
-        request.continue({
-          url: 'data:image/gif;base64,R0lGODlhAQABAID/AP///wAAACwAAAAAAQABAAACAkQBADs=',
-        });
-      } else {
-        request.continue();
-      }
+      request.continue();
     }
   });
 

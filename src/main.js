@@ -204,11 +204,11 @@ require('http').createServer(async (req, res) => {
       }
       c = await cPromise;
 
-      const is4xx = /^4\d\d$/.test(c.meta.statusCode);
-      if (is4xx) cache.delete(pageURL);
+      const isNot2xx = /^[^2]\d\d$/.test(c.meta.statusCode);
+      if (isNot2xx) cache.delete(pageURL);
 
       // Cache to memcache
-      if (USE_MEMCACHE && !is4xx) {
+      if (USE_MEMCACHE && !isNot2xx) {
         memcacheClient.set(cacheKey, { url: pageURL, ...c }, config.cache.expiry)
           .then(() => {
             cache.delete(pageURL);

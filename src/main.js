@@ -60,7 +60,13 @@ const fetchContent = async (pageURL) => {
     if (!whitelistRegExp.test(url) || method.toLowerCase() !== 'get' || /^(font|media|websocket|manifest|other)$/i.test(resourceType)) {
       request.abort();
     } else {
-      request.continue();
+      if (resourceType == 'Image') {
+        request.continue({
+          url: 'data:image/gif;base64,R0lGODlhAQABAID/AP///wAAACwAAAAAAQABAAACAkQBADs=',
+        });
+      } else {
+        request.continue();
+      }
     }
   });
 

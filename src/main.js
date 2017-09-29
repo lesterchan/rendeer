@@ -254,7 +254,7 @@ require('http').createServer(async (req, res) => {
 
 process.on('SIGINT', () => {
   if (browser) browser.close();
-  process.exit();
+  process.exit(1);
 });
 
 process.on('unhandledRejection', (reason, p) => {

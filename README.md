@@ -14,7 +14,7 @@ yarn run start
 ## Deploy
 ```
 pip install awsebcli
-eb init Rendeer -r ap-southeast-1 -p "arn:aws:elasticbeanstalk:ap-southeast-1::platform/Docker running on 64bit Amazon Linux/2.7.3"
+eb init Rendeer -r ap-southeast-1 -p "arn:aws:elasticbeanstalk:ap-southeast-1::platform/Docker running on 64bit Amazon Linux/2.8.0"
 eb deploy
 ```
 

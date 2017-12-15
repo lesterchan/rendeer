@@ -46,7 +46,7 @@ const fetchContent = async (pageURL) => {
 
   // Open page
   const page = await browser.newPage();
-  await page.setRequestInterceptionEnabled(true);
+  await page.setRequestInterception(true);
   page.on('request', (request) => {
     const { url, method, resourceType } = request;
 
@@ -71,7 +71,7 @@ const fetchContent = async (pageURL) => {
   // Fetch page
   console.log(`Fetch: ${pageURL}`);
   await page.goto(pageURL, {
-    waitUntil: 'networkidle',
+    waitUntil: 'networkidle0',
   });
 
   // Evaluate page

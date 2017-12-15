@@ -37,8 +37,8 @@
   "dependencies": {
     "md5": "~2.2.1",
     "memcache-plus": "~0.2.18",
-    "p-timeout": "~1.2.0",
-    "puppeteer": "~0.10.2"
+    "p-timeout": "~2.0.1",
+    "puppeteer": "~0.13.0"
   },
   "engines": {
     "node": ">=7.6"

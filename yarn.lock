@@ -826,9 +826,9 @@ p-locate@^2.0.0:
   dependencies:
     p-limit "^1.1.0"
 
-p-timeout@~1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/p-timeout/-/p-timeout-1.2.0.tgz#9820f99434c5817868b4f34809ee5291660d5b6c"
+p-timeout@~2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/p-timeout/-/p-timeout-2.0.1.tgz#d8dd1979595d2dc0139e1fe46b8b646cb3cdf038"
   dependencies:
     p-finally "^1.0.0"
 
@@ -914,9 +914,9 @@ pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
 
-puppeteer@~0.10.2:
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-0.10.2.tgz#b4a959a722bf626ca481f2aeba11fdb810f2c98f"
+puppeteer@~0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-0.13.0.tgz#2e6956205f2c640964c2107f620ae1eef8bde8fd"
   dependencies:
     debug "^2.6.8"
     extract-zip "^1.6.5"

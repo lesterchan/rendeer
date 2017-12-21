@@ -248,6 +248,8 @@ require('http').createServer(async (req, res) => {
       console.error('Web socket failed');
       try { // Sometimes it tries to close an already closed browser
         browser.close();
+      } catch (err) {
+        console.log(`Chrome could not be killed: ${err.message}`);
       } finally {
         browser = null;
       }

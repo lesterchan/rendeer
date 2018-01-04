@@ -233,6 +233,9 @@ require('http').createServer(async (req, res) => {
     console.error(`Crashed Page: ${pageURL}`);
     console.error(e);
 
+    // Ensure cache of fetchPromise is deleted
+    cache.delete(pageURL);
+
     // Output error
     const { message = '' } = e;
     res.writeHead(400, {

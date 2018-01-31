@@ -197,7 +197,7 @@ require('http').createServer(async (req, res) => {
     if (USE_MEMCACHE) {
       cacheKey = md5(pageURL);
       c = await memcacheClient.get(cacheKey);
-      if (c) console.log(`Cached: ${pageURL}`);
+      if (c) console.log(`Memcached: ${pageURL}`);
     }
 
     if (!c) {
@@ -209,15 +209,22 @@ require('http').createServer(async (req, res) => {
       c = await cPromise;
 
       const isNot2xx = /^[^2]\d\d$/.test(c.meta.statusCode);
-      if (isNot2xx) cache.delete(pageURL);
+      if (isNot2xx) {
+        console.log(`Local Cache Delete: ${pageURL}`);
+        cache.delete(pageURL);
+      }
 
       // Cache to memcache
       if (USE_MEMCACHE && !isNot2xx) {
+        console.log(`Memcached Setting: ${pageURL}`);
         memcacheClient.set(cacheKey, { url: pageURL, ...c }, config.cache.expiry)
           .then(() => {
+            console.log(`Memcached Set: ${pageURL}`);
             cache.delete(pageURL);
           })
-          .catch(() => {});
+          .catch((e) => {
+            console.log(`Memcached Error: ${e.message}`);
+          });
       }
     }
 

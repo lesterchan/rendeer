@@ -46,9 +46,12 @@ const fetchContent = async (pageURL) => {
 
   // Open page
   const page = await browser.newPage();
+  page.setDefaultNavigationTimeout(config.page.timeout * 1000);
   await page.setRequestInterception(true);
   page.on('request', (request) => {
-    const { url, method, resourceType } = request;
+    const url = request.url();
+    const method = request.method();
+    const resourceType = request.resourceType();
 
     // Skip data URIs
     if (/^data:/i.test(url)) {
@@ -167,7 +170,7 @@ require('http').createServer(async (req, res) => {
     if (clearCacheUrl) {
       const clearCache = await memcacheClient.delete(md5(clearCacheUrl));
       if (clearCache) {
-        console.log(`[Memcached] Delete: ${clearCacheUrl}`);
+        console.log(`[Memcached] Clear: ${clearCacheUrl}`);
       }
     }
     res.writeHead(200);
@@ -255,8 +258,9 @@ require('http').createServer(async (req, res) => {
     // Handle websocket not opened error
     if (/not opened/i.test(message) && browser) {
       console.error('Web socket failed');
-      try { // Sometimes it tries to close an already closed browser
-        browser.close();
+      try {
+        // Sometimes it tries to close an already closed browser
+        await browser.close();
       } catch (err) {
         console.log(`Chrome could not be killed: ${err.message}`);
       } finally {
@@ -267,7 +271,9 @@ require('http').createServer(async (req, res) => {
 }).listen(process.env.PORT || 3000);
 
 process.on('SIGINT', () => {
-  if (browser) browser.close();
+  if (browser) {
+    browser.close();
+  }
   process.exit(1);
 });
 

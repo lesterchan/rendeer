@@ -12,5 +12,8 @@
   },
   "render": {
     "timeout": 15
+  },
+  "page": {
+    "timeout": 60
   }
 }

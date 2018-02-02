@@ -40,6 +40,7 @@ const fetchContent = async (pageURL) => {
       ignoreHTTPSErrors: true,
       args: [
         '--no-sandbox',
+        '--disable-dev-shm-usage',
       ],
     });
   }

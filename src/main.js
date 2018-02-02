@@ -193,7 +193,7 @@ require('http').createServer(async (req, res) => {
   let pageURL;
 
   try {
-    const u = new URL(requestUrl);
+    const u = new URL(decodeURIComponent(requestUrl));
     pageURL = u.origin + decodeURIComponent(u.pathname);
 
     let cacheKey;

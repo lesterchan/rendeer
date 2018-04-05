@@ -2,7 +2,8 @@
   "whitelist": [
     "://[^.]+\\.techinasia\\.com",
     "://[^.]+\\.algolia",
-    "://d2wy8f7a9ursnm\\.cloudfront\\.net"
+    "://d2wy8f7a9ursnm\\.cloudfront\\.net",
+    "://d26bwjyd9l0e3m\\.cloudfront\\.net"
   ],
   "cacheControl": {
     "maxAge" : 31536000

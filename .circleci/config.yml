@@ -9,8 +9,8 @@ jobs:
       - run: 'sudo apt install python-pip python-dev'
       - run: 'sudo easy_install six==1.9.0'
       - run: 'sudo pip install awsebcli'
-      - run: 'yarn'
-      - run: 'yarn run lint'
+      - run: 'npm install'
+      - run: 'npm run lint'
       - deploy:
           name: Deploy to Production
           command: |

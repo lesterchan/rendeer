@@ -3,12 +3,12 @@ When Puppeteer meets Prerender
 
 ## Lint
 ```
-yarn run lint
+npm run lint
 ```
 
 ## Run
 ```
-yarn run start
+npm run start
 ```
 
 ## Deploy

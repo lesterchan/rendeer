@@ -36,11 +36,11 @@
   },
   "dependencies": {
     "md5": "~2.2.1",
-    "memcache-plus": "~0.2.18",
+    "memcache-plus": "~0.2.19",
     "p-timeout": "~2.0.1",
     "puppeteer": "~1.8.0"
   },
   "engines": {
-    "node": ">=10.0"
+    "node": ">=10.10"
   }
 }

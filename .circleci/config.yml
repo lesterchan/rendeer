@@ -3,7 +3,7 @@ jobs:
   build_test_deploy:
     working_directory: ~/rendeer
     docker:
-      - image: circleci/node:8.4-browsers
+      - image: circleci/node:10.10-browsers
     steps:
       - checkout
       - run: 'sudo apt install python-pip python-dev'
@@ -15,7 +15,7 @@ jobs:
           name: Deploy to Production
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              eb init Rendeer -r ap-southeast-1 -p "arn:aws:elasticbeanstalk:ap-southeast-1::platform/Docker running on 64bit Amazon Linux/2.9.2"
+              eb init Rendeer -r ap-southeast-1 -p "arn:aws:elasticbeanstalk:ap-southeast-1::platform/Docker running on 64bit Amazon Linux/2.12.2"
               eb deploy
             fi
 

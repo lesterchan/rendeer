@@ -1,6 +1,6 @@
 {
   "name": "rendeer",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "When Puppeteer meets Prerender",
   "license": "MIT",
   "author": "Tech in Asia .develop <dev@techinasia.com> (https://www.techinasia.com)",
@@ -38,9 +38,9 @@
     "md5": "~2.2.1",
     "memcache-plus": "~0.2.18",
     "p-timeout": "~2.0.1",
-    "puppeteer": "~1.0.0"
+    "puppeteer": "~1.8.0"
   },
   "engines": {
-    "node": ">=7.6"
+    "node": ">=10.0"
   }
 }

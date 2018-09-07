@@ -61,7 +61,7 @@ const fetchContent = async (pageURL) => {
     }
 
     // Ensure that only whitelisted URLs and GET method is allowed
-    if (!whitelistRegExp.test(url) || method.toLowerCase() !== 'get' || /^(font|media|websocket|manifest|other)$/i.test(resourceType)) {
+    if (!whitelistRegExp.test(url) || method.toLowerCase() !== 'get' || /^(font|media|websocket|manifest)$/i.test(resourceType)) {
       request.abort();
     } else if (resourceType.toLowerCase() === 'image') {
       request.continue({

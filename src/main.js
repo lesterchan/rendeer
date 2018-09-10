@@ -63,10 +63,12 @@ const fetchContent = async (pageURL) => {
     // Ensure that only whitelisted URLs and GET method is allowed
     if (!whitelistRegExp.test(url) || method.toLowerCase() !== 'get' || /^(font|media|websocket|manifest)$/i.test(resourceType)) {
       request.abort();
+    /* Puppeteer 1.8.0 breaks this
     } else if (resourceType.toLowerCase() === 'image') {
       request.continue({
         url: 'data:image/gif;base64,R0lGODlhAQABAID/AP///wAAACwAAAAAAQABAAACAkQBADs=',
       });
+    */
     } else {
       request.continue();
     }
@@ -263,7 +265,7 @@ require('http').createServer(async (req, res) => {
     res.end(`Oops. Something is wrong.\n\n${message}`);
 
     // Handle websocket not opened error
-    if (/not opened/i.test(message) && browser) {
+    if (/not open/i.test(message) && browser) {
       console.error('Web socket failed');
       try {
         // Sometimes it tries to close an already closed browser

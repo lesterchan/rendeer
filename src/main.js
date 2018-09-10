@@ -132,8 +132,8 @@ const fetchContent = async (pageURL) => {
   let content = await pTimeout(page.content(), config.render.timeout * 1000, 'Render timed out');
 
   // Delete cookies
-  page.cookies().then(cookies => {
-    const cookieNames = cookies.map(cookie => ({ name: cookie.name }));
+  page.cookies().then((cookies) => {
+    const cookieNames = cookies.map((cookie) => ({ name: cookie.name }));
     return page.deleteCookie(...cookieNames).then(() => {
       // Close page
       page.close();

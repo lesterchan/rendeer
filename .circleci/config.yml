@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: 'sudo apt install python-pip python-dev'
       - run: 'sudo easy_install six==1.9.0'
-      - run: 'sudo pip install awsebcli'
+      - run: 'sudo pip install --upgrade "urllib3==1.22" awscli'
       - run: 'npm install'
       - run: 'npm run lint'
       - deploy:

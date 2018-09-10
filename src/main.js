@@ -131,8 +131,14 @@ const fetchContent = async (pageURL) => {
   // Get page content
   let content = await pTimeout(page.content(), config.render.timeout * 1000, 'Render timed out');
 
-  // Close page
-  page.close();
+  // Delete cookies
+  page.cookies().then(cookies => {
+    const cookieNames = cookies.map(cookie => ({ name: cookie.name }));
+    return page.deleteCookie(...cookieNames).then(() => {
+      // Close page
+      page.close();
+    });
+  });
 
   // Remove comments
   content = content.replace(/<!--[\s\S]*?-->/g, '');

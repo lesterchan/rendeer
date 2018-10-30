@@ -50,18 +50,18 @@ const fetchContent = async (pageURL) => {
   page.setDefaultNavigationTimeout(config.page.timeout * 1000);
   await page.setRequestInterception(true);
   page.on('request', (request) => {
-    const url = request.url();
+    const requestUrl = request.url();
     const method = request.method();
     const resourceType = request.resourceType();
 
     // Skip data URIs
-    if (/^data:/i.test(url)) {
+    if (/^data:/i.test(requestUrl)) {
       request.continue();
       return;
     }
 
     // Ensure that only whitelisted URLs and GET method is allowed
-    if (!whitelistRegExp.test(url) || method.toLowerCase() !== 'get' || /^(font|media|websocket|manifest)$/i.test(resourceType)) {
+    if (!whitelistRegExp.test(requestUrl) || method.toLowerCase() !== 'get' || /^(font|media|websocket|manifest)$/i.test(resourceType)) {
       request.abort();
     } else {
       request.continue();

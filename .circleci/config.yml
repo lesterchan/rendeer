@@ -3,7 +3,7 @@ jobs:
   build_test_deploy:
     working_directory: ~/rendeer
     docker:
-      - image: circleci/node:10.9-browsers
+      - image: circleci/node:10.12-browsers
     steps:
       - checkout
       - run: 'sudo apt install python-pip python-dev'

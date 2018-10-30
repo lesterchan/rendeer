@@ -199,8 +199,8 @@ exports.rendeer = async (req, res) => {
   let pageURL;
 
   try {
-    const u = new URL(decodeURIComponent(requestUrl));
-    pageURL = u.origin + decodeURIComponent(u.pathname);
+    const u = url.parse(decodeURIComponent(requestUrl));
+    pageURL = u.href;
 
     let cacheKey;
     let c;

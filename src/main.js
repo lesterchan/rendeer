@@ -1,5 +1,5 @@
 // Require
-const { URL } = require('url');
+const url = require('url');
 const md5 = require('md5');
 const MemcachePlus = require('memcache-plus');
 const puppeteer = require('puppeteer');
@@ -63,12 +63,6 @@ const fetchContent = async (pageURL) => {
     // Ensure that only whitelisted URLs and GET method is allowed
     if (!whitelistRegExp.test(url) || method.toLowerCase() !== 'get' || /^(font|media|websocket|manifest)$/i.test(resourceType)) {
       request.abort();
-    /* Puppeteer 1.8.0 breaks this
-    } else if (resourceType.toLowerCase() === 'image') {
-      request.continue({
-        url: 'data:image/gif;base64,R0lGODlhAQABAID/AP///wAAACwAAAAAAQABAAACAkQBADs=',
-      });
-    */
     } else {
       request.continue();
     }
@@ -173,9 +167,12 @@ exports.rendeer = async (req, res) => {
     return;
   }
 
+  // Parsed URL
+  const parsedUrl = url.parse(req.url, true);
+
   // Clear cache
-  if (USE_MEMCACHE && req.url.substr(0, 7) === '/clear/') {
-    const clearCacheUrl = req.url.replace(/(\/^)/, '').substr(7) || '';
+  if (USE_MEMCACHE && (parsedUrl.query.clear || req.url.substr(0, 7) === '/clear/')) {
+    const clearCacheUrl = parsedUrl.query.clear || (req.url.replace(/(\/^)/, '').substr(7) || '');
     if (clearCacheUrl) {
       const clearCache = await memcacheClient.delete(md5(clearCacheUrl));
       if (clearCache) {
@@ -187,7 +184,8 @@ exports.rendeer = async (req, res) => {
     return;
   }
 
-  const requestUrl = req.url.replace(/(\/^)/, '').substr(1) || '';
+  // Get the URL we are fetching
+  const requestUrl = parsedUrl.query.fetch || (req.url.replace(/(\/^)/, '').substr(1) || '');
 
   // Missing URL
   if (!requestUrl) {

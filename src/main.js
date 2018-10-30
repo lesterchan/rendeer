@@ -148,7 +148,7 @@ const fetchContent = async (pageURL) => {
   return { content, meta };
 };
 
-require('http').createServer(async (req, res) => {
+exports.rendeer = async (req, res) => {
   // AppEngine internal URLs
   if (req.url.substr(0, 4) === '/_ah') {
     res.writeHead(200);
@@ -277,7 +277,7 @@ require('http').createServer(async (req, res) => {
       }
     }
   }
-}).listen(process.env.PORT || 3000);
+};
 
 process.on('SIGINT', () => {
   if (browser) {

@@ -12,7 +12,7 @@
   "main": "src/main.js",
   "scripts": {
     "lint": "eslint src/*.js",
-    "start": "node src/main.js"
+    "start": "node src/start.js"
   },
   "eslintConfig": {
     "extends": "techinasia-base",
@@ -41,6 +41,6 @@
     "puppeteer": "~1.9.0"
   },
   "engines": {
-    "node": ">=10.12"
+    "node": ">=8.11.1"
   }
 }

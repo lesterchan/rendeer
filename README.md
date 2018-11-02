@@ -11,10 +11,10 @@ npm run lint
 npm run start
 ```
 
-## Deploy
+## Deploy AWS Elastic Beanstalk
 ```
 pip install awsebcli
-eb init Rendeer -r ap-southeast-1 -p "arn:aws:elasticbeanstalk:ap-southeast-1::platform/Docker running on 64bit Amazon Linux/2.12.3"
+eb init Rendeer -r ap-southeast-1 -p "arn:aws:elasticbeanstalk:ap-southeast-1::platform/Docker running on 64bit Amazon Linux/2.12.4"
 eb deploy
 ```
 

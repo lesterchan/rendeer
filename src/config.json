@@ -1,0 +1,18 @@
+{
+  "whitelist": [
+    "://lesterchan\\.net",
+    "://[^.]+\\.lesterchan\\.net"
+  ],
+  "cacheControl": {
+    "maxAge" : 31536000
+  },
+  "cache": {
+    "expiry": 2592000
+  },
+  "render": {
+    "timeout": 15
+  },
+  "page": {
+    "timeout": 60
+  }
+}

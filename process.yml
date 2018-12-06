@@ -1,0 +1,5 @@
+apps:
+  - script   : 'src/start.js'
+    name     : 'Rendeer'
+    exec_mode: 'cluster'
+    instances: 'max'

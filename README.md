@@ -1,6 +1,9 @@
 # 🦌 Rendeer
 When Puppeteer meets Prerender
 
+## Build Status
+[![Build Status](https://travis-ci.org/lesterchan/rendeer.svg?branch=master)](https://travis-ci.org/lesterchan/rendeer)
+
 ## Lint
 ```
 npm run lint

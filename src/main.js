@@ -84,7 +84,7 @@ const fetchContent = async (pageURL) => {
     const imports = document.querySelectorAll('link[rel=import]');
     imports.forEach((i) => i.parentNode.removeChild(i));
 
-    const { origin, pathname } = location;
+    const { origin, pathname } = window.location;
     // Inject <base> for loading relative resources
     if (!document.querySelector('base')) {
       const base = document.createElement('base');
@@ -114,7 +114,9 @@ const fetchContent = async (pageURL) => {
     if ($headers.length) {
       const headersList = $headers.map(($header) => $header.content.match(/^\s*([^:]+)\s*:\s*([^:]+)/i));
       headersList.forEach((h) => {
-        headers[h[0]] = h[1];
+        const headerKey = h[0];
+        const headerValue = h[1];
+        headers[headerKey] = headerValue;
       });
     }
 

@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "eslint": "~5.9.0",
-    "eslint-config-techinasia-base": "~0.7.1",
+    "eslint-config-techinasia-base": "~0.8.0",
     "eslint-plugin-import": "~2.14.0"
   },
   "dependencies": {

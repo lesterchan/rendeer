@@ -1,3 +1,5 @@
+'use strict';
+
 // Require
 const url = require('url');
 const md5 = require('md5');

@@ -12,12 +12,14 @@
   "main": "src/main.js",
   "scripts": {
     "lint": "eslint src/*.js",
-    "start": "node src/start.js"
+    "start": "node src/start.js",
+    "test": "mocha"
   },
   "eslintConfig": {
     "extends": "techinasia-base",
     "env": {
       "browser": true,
+      "mocha": true,
       "node": true
     },
     "rules": {
@@ -30,9 +32,12 @@
     }
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^5.9.0",
     "eslint-config-techinasia-base": "^0.8.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0"
   },
   "dependencies": {
     "md5": "~2.2.1",

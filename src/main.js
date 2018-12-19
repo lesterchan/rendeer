@@ -175,9 +175,9 @@ exports.rendeer = async (req, res) => {
   const parsedUrl = url.parse(req.url, true);
 
   // Clear cache
-  if (USE_MEMCACHE && (parsedUrl.query.clear || req.url.substr(0, 7) === '/clear/')) {
+  if (parsedUrl.query.clear || req.url.substr(0, 7) === '/clear/') {
     const clearCacheUrl = parsedUrl.query.clear || (req.url.replace(/(\/^)/, '').substr(7) || '');
-    if (clearCacheUrl) {
+    if (USE_MEMCACHE && clearCacheUrl) {
       const clearCache = await memcacheClient.delete(md5(clearCacheUrl));
       if (clearCache) {
         console.log(`[Memcached] Clear: ${clearCacheUrl}`);

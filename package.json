@@ -34,15 +34,15 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^5.9.0",
+    "eslint": "^5.16.0",
     "eslint-config-techinasia-base": "^0.8.0",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import": "^2.18.0",
     "mocha": "^5.2.0"
   },
   "dependencies": {
     "md5": "~2.2.1",
     "memcache-plus": "~0.2.19",
     "p-timeout": "~2.0.1",
-    "puppeteer": "^1.17.0"
+    "puppeteer": "^1.18.1"
   }
 }

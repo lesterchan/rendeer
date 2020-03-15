@@ -2,7 +2,7 @@
 When Puppeteer meets Prerender
 
 ## Build Status
-[![Build Status](https://travis-ci.org/lesterchan/rendeer.svg?branch=master)](https://travis-ci.org/lesterchan/rendeer)
+[![Build Status](https://github.com/lesterchan/rendeer/workflows/GitHub%20CI%2FCD/badge.svg)](https://github.com/lesterchan/rendeer/actions)
 
 ## Lint
 ```

@@ -32,17 +32,17 @@
     }
   },
   "devDependencies": {
-    "chai": "^4.2.0",
+    "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^7.6.0",
+    "eslint": "^7.26.0",
     "eslint-config-techinasia-base": "^0.8.0",
-    "eslint-plugin-import": "^2.22.0",
-    "mocha": "^8.1.1"
+    "eslint-plugin-import": "^2.22.1",
+    "mocha": "^8.4.0"
   },
   "dependencies": {
     "md5": "^2.3.0",
-    "memcache-plus": "^0.2.21",
-    "p-timeout": "^3.2.0",
-    "puppeteer": "^5.2.1"
+    "memcache-plus": "^0.2.22",
+    "p-timeout": "^4.1.0",
+    "puppeteer": "^9.1.1"
   }
 }
